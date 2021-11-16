@@ -278,7 +278,7 @@ const digitTypes = {
   weather: {
     type: 0,
     count: 10,
-    numberLenght: 2,
+    numberLenght: 3,
     displayAnalog: false,
     imageProgressTotal: 29,
     unit: ['°C', '°C', '°C'],

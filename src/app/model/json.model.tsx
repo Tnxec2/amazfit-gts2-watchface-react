@@ -1,5 +1,5 @@
 import Color from "../shared/color";
-import { AlignmentType, ImageProgressDisplayType, LangCodeType } from "./types.model";
+import { AlignmentType, FollowType, ImageProgressDisplayType, LangCodeType } from "./types.model";
 
 
 export class DeviceId {
@@ -245,7 +245,7 @@ export class DigitalDigit {
   Type: string;
   TimeType: string;
   DateType: string;
-  CombingMode: string;
+  CombingMode: string = FollowType.Single.json;
   Digit: Text = new Text();
   Separator: ImageCoord;
 }

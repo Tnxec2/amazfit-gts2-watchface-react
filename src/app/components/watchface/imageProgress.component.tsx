@@ -4,6 +4,7 @@ import { WatchImageProgress } from "../../model/watchFace.model";
 import { BlockType, IRow } from "../../model/blocks.model";
 import BlocksArrayComponent from "../../blocks/blocksArray.component";
 import { Coordinates } from "../../model/json.model";
+import { ImageProgressDisplayType } from "../../model/types.model";
 
 interface IProps {
   imageProgress: WatchImageProgress;
@@ -17,6 +18,8 @@ const ImageProgressComponent: FC<IProps> = ({ imageProgress, onUpdate }) => {
       blocks: [
         { title: 'Image', type: BlockType.SelectFile, nvalue: imageProgress.json?.ImageSet?.ImageIndex, onChange: changeImageIndex },
         { title: 'Count', type: BlockType.Number, nvalue: imageProgress.json?.ImageSet?.ImagesCount, onChange: changeCount },
+        { title: 'Display type', type: BlockType.Checkbox, checked: imageProgress.json?.DisplayType !== ImageProgressDisplayType.Continuous.json, onChange: onChangeDisplayType },
+        { title: imageProgress.json?.DisplayType === ImageProgressDisplayType.Continuous.json ? 'continuous' : 'singe', type: BlockType.Empty}
       ]
     },
     ], [imageProgress]) // eslint-disable-line react-hooks/exhaustive-deps
@@ -24,9 +27,17 @@ const ImageProgressComponent: FC<IProps> = ({ imageProgress, onUpdate }) => {
   function toggle() {
     const ip = { ...imageProgress };
     ip.enabled = !ip.enabled;
+    if (ip.enabled) {
+      if (!ip.json.Coordinates || ip.json.Coordinates.length === 0) ip.json.Coordinates = [new Coordinates()]
+    } 
     onUpdate(ip);
   }
 
+  function onChangeDisplayType(ch: boolean) {
+    let ip = { ...imageProgress };
+    ip.json.DisplayType = ch ? ImageProgressDisplayType.Single.json : ImageProgressDisplayType.Continuous.json;
+    onUpdate(ip);
+  }
   function changeImageIndex(i: number) {
     let ip = { ...imageProgress };
     ip.json.ImageSet.ImageIndex = i;

@@ -32,8 +32,8 @@ const FileLoaderComponent: FC = () => {
   }
 
   function getImages(files: FileList, ar: IImage[], index = 0) {
-    clearInput()
-    setJsonName(null)
+    //clearInput()
+    //setJsonName(null)
     if (index < files.length) {
       const filename = files[index].name;
       let base = filename;

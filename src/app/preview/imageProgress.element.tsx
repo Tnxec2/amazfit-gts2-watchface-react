@@ -1,6 +1,7 @@
 import { findImageById } from "../shared/helper";
 import { IImage } from "../model/image.model";
 import { WatchImageProgress } from "../model/watchFace.model";
+import { ImageProgressDisplayType } from "../model/types.model";
 
 export default function drawImageProgress(ctx: CanvasRenderingContext2D, 
     images: IImage[], 
@@ -19,7 +20,7 @@ export default function drawImageProgress(ctx: CanvasRenderingContext2D,
                 if (value > total) value = total
 
                 let initial = 0
-                if (!imageProgress.json.DisplayType)
+                if (imageProgress.json.DisplayType !== ImageProgressDisplayType.Continuous.json)
                     initial = s
 
                 for (let i = initial; i <= s; i++) {

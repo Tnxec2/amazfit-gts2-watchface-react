@@ -121,7 +121,7 @@ const ActivityComponent: FC<IProps> = ({
                 imageProgress={activity.imageProgress}
                 onUpdate={(d) => {
                   const a = { ...activity };
-                  a.imageProgress = d;
+                  a.imageProgress = {...d};
                   onUpdateActivity(a);
                 }}
               />
@@ -129,7 +129,7 @@ const ActivityComponent: FC<IProps> = ({
                 progressBar={activity.progressBar}
                 onUpdate={(d) => {
                   const a = { ...activity };
-                  a.progressBar = d;
+                  a.progressBar = {...d};
                   onUpdateActivity(a);
                 }}
               />

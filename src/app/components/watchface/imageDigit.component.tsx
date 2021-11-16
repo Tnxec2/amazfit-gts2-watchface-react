@@ -110,7 +110,11 @@ const ImageDigitComponent: FC<IProps> = ({
       d.json.Digit.Image.MultilangImage[length-1].ImageSet.ImageIndex = index;
       d.json.Digit.Image.MultilangImage[length-1].ImageSet.ImagesCount = d.con.count;
     } else {
-      d.json.Digit.Image.MultilangImage[imageSetIndex].ImageSet.ImageIndex = index;
+      if (index) {
+        d.json.Digit.Image.MultilangImage[imageSetIndex].ImageSet.ImageIndex = index;
+      } else {
+        d.json.Digit.Image.MultilangImage = null;
+      }
     }
     onUpdate(d);
   }
@@ -126,7 +130,11 @@ const ImageDigitComponent: FC<IProps> = ({
       d.json.Digit.Image.MultilangImageUnit[length-1].ImageSet.ImageIndex = index;
       d.json.Digit.Image.MultilangImageUnit[length-1].ImageSet.ImagesCount = 1;
     } else {
-      d.json.Digit.Image.MultilangImageUnit[imageSetIndex].ImageSet.ImageIndex = index;
+      if (index) {
+        d.json.Digit.Image.MultilangImageUnit[imageSetIndex].ImageSet.ImageIndex = index;
+      } else {
+        d.json.Digit.Image.MultilangImageUnit = null
+      }
     }
     onUpdate(d);
   }

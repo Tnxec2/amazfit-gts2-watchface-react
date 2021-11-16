@@ -7,7 +7,9 @@ import { LangCodeType } from "../model/types.model";
 
 export default function drawclockhand(ctx: CanvasRenderingContext2D, 
     images: IImage[], 
-    clockHand: WatchClockHand, value: number, total: number) {
+    clockHand: WatchClockHand, 
+    value: number, 
+    total: number) {
         if (total === null) return
         if (clockHand.json.Scale) {
             const scaleImageSetIndex = findImageIndex(clockHand.json.Scale?.ImageSet);

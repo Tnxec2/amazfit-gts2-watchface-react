@@ -86,7 +86,7 @@ const ActivityListComponent: FC<IProps> = ({activitys, onUpdate, collapsed, setC
                   onUpdateActivity={(a) => updateActivity(index, a)}
                   onDelete={(e) => deleteActivity(e, index)}
                   showNoData={true}
-                  showDecimalPointer={item.type === ActivityType.Distance}
+                  showDecimalPointer={item.type === ActivityType.Distance || item.type === ActivityType.Sunrise}
                   showProgress={item.type !== ActivityType.Distance}
                   showDelimiter={item.type === ActivityType.Weather}
                   title={item.digit ? item.digit.con.title : null}
