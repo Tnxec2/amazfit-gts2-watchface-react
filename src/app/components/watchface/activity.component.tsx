@@ -44,19 +44,22 @@ const ActivityComponent: FC<IProps> = ({
 
   function onUpdateDigit(d: WatchCommonDigit) {
     let a = { ...activity }
-    a.digit = { ...d }
+    a.digit = d
+    activity.digit = d
     onUpdateActivity(a)
   }
 
   function onUpdateDigitMin(d: WatchCommonDigit) {
     let a = { ...activity }
-    a.digitMin = { ...d }
+    a.digitMin = d
+    activity.digitMin = d
     onUpdateActivity(a)
   }
 
   function onUpdateDigitMax(d: WatchCommonDigit) {
     let a = { ...activity }
-    a.digitMax = { ...d }
+    a.digitMax = d
+    activity.digitMax = d
     onUpdateActivity(a)
   }
 
@@ -137,7 +140,7 @@ const ActivityComponent: FC<IProps> = ({
                 progressBar={activity.progressBar}
                 onUpdate={(d) => {
                   const a = { ...activity };
-                  a.progressBar = d;
+                  a.progressBar = {...d};
                   onUpdateActivity(a);
                 }}
               />
@@ -146,7 +149,7 @@ const ActivityComponent: FC<IProps> = ({
                 clockHand={activity.pointerProgress}
                 onUpdate={(ch) => {
                   const a = { ...activity };
-                  a.pointerProgress = ch;
+                  a.pointerProgress = {...ch};
                   onUpdateActivity(a);
                 }}
                 showAngle={true}
@@ -158,7 +161,7 @@ const ActivityComponent: FC<IProps> = ({
               imageCoords={activity.icon}
               onUpdate={(ip) => {
                 const a = { ...activity };
-                a.icon = ip;
+                a.icon = {...ip};
                 onUpdateActivity(a);
               }}
             />

@@ -20,7 +20,7 @@ export default function drawDigitImage(
     const imageSetIndex = findImageIndex(digit.json.Digit?.Image?.MultilangImage);
     const unitImageSetIndex =findImageIndex(digit.json.Digit?.Image?.MultilangImageUnit);
 
-    console.log(number, x, y, imageSetIndex, digit.json.Digit.Image.MultilangImage[imageSetIndex]?.ImageSet?.ImageIndex);
+    //console.log(number, x, y, imageSetIndex, digit.json.Digit.Image.MultilangImage[imageSetIndex]?.ImageSet?.ImageIndex);
     
 
     if (digit.json.Digit?.Image?.MultilangImage &&
@@ -137,7 +137,7 @@ function drawImages(
 
     //if (widthUnit) imageWidth = imageWidth - widthUnit
 
-    console.log(numberLenght, strLenght, widthUnit);
+    //console.log(numberLenght, strLenght, widthUnit);
     
     let maxWidth: number = widthZero * strLenght + widthZero * (numberLenght - strLenght)
     if (spacing > 0 ) maxWidth += spacing * (ar.length + numberLenght - strLenght - 1)

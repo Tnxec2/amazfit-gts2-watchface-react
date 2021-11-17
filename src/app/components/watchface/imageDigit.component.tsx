@@ -230,7 +230,7 @@ const ImageDigitComponent: FC<IProps> = ({
               onChange={() => {
                 const d = { ...digit };
                 d.enabledImage = !d.enabledImage;
-                d.enabled = d.enabledImage || d.enabledSystemFont
+                d.enabled = d.enabledImage || d.enabledSystemFont || d.enabledSystemFontCircle
                 if ( !d.json.Digit.Image) {
                   d.json.Digit.Image = new Image()
                   let digitimage = new MultilangImage()

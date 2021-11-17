@@ -13,7 +13,8 @@ interface IProps {
   setCollapsed(collapsed: boolean): void
 }
 
-const ActivityListComponent: FC<IProps> = ({activitys, onUpdate, collapsed, setCollapsed}) => {
+const ActivityListComponent: FC<IProps> = ({
+  activitys, onUpdate, collapsed, setCollapsed}) => {
 
   const [activityToAdd, setActivityToAdd] = useState<number>(ActivityType.Battery.index);
 
@@ -22,9 +23,8 @@ const ActivityListComponent: FC<IProps> = ({activitys, onUpdate, collapsed, setC
     onUpdate(al)
   }
 
-  function updateActivity(index: number, a: WatchActivity) {
-    let al = [...activitys]
-    al[index] = {...a}
+  function updateActivity(i: number, a: WatchActivity) {
+    let al = [...activitys].map((item, index) => index === i ? a : item);
     onUpdate(al)
   }
 
@@ -33,8 +33,7 @@ const ActivityListComponent: FC<IProps> = ({activitys, onUpdate, collapsed, setC
     if (activityToAdd) {
       let _a = getActivityFromJson(null, ActivityType.findByIndex(activityToAdd) )
       if (_a) {
-        let al = [...activitys]
-        al.push(_a)
+        let al = [...activitys, _a]
         onUpdate(al)
       }
     }

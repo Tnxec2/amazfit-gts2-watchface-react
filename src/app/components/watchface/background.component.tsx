@@ -19,27 +19,24 @@ const BackgroundComponent: FC = () => {
         { title: 'Color', type: BlockType.Color, svalue: watchface.background.color, onChange: onChangeBackgroundColor },
       ]
     }
-  ], [watchface.background])  // eslint-disable-line react-hooks/exhaustive-deps
+  ], [watchface])  // eslint-disable-line react-hooks/exhaustive-deps
 
   function onChangeBackgroundPreviewImage(index: number) {
-    setWatchface({
-      ...watchface,
-      background: { ...watchface.background, previewIndex: index },
-    });
+    let w = {...watchface}
+    w.background.previewIndex = index
+    setWatchface(w)
   }
 
   function onChangeBackgroundImageIndex(index: number) {
-    setWatchface({
-      ...watchface,
-      background: { ...watchface.background, imageIndex: index },
-    });
+    let w = {...watchface}
+    w.background.imageIndex = index
+    setWatchface(w)
   }
 
   function onChangeBackgroundColor(value: string) {
-    setWatchface({
-      ...watchface,
-      background: { ...watchface.background, color: value },
-    });
+    let w = {...watchface}
+    w.background.color = value
+    setWatchface(w)
   }
 
   return (

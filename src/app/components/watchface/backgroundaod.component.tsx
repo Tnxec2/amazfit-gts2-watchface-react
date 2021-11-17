@@ -13,7 +13,7 @@ const BackgroundAODComponent: FC = () => {
         { title: 'Background', type: BlockType.SelectFile, nvalue: watchface.aod.backgroundImageIndex, onChange: onChangeBackgroundImageIndex },
       ]
     },
-  ], [watchface.aod.backgroundImageIndex]) // eslint-disable-line react-hooks/exhaustive-deps
+  ], [watchface]) // eslint-disable-line react-hooks/exhaustive-deps
 
   function onChangeBackgroundImageIndex(index: number) {
     setWatchface({

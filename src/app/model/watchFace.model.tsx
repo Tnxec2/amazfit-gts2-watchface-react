@@ -362,6 +362,7 @@ export class WatchCommonDigit {
         if (d.Digit?.SystemFont?.FontRotate) this.enabledSystemFontCircle = true
         else this.enabledSystemFont = true
       }
+      this.enabled = this.enabledImage || this.enabledSystemFont || this.enabledSystemFontCircle
     }
     if (con != null) {
       if (!d) {

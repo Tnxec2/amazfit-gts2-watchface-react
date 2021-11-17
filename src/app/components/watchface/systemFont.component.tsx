@@ -136,7 +136,7 @@ const SystemFontComponent: FC<IProps> = ({
               onChange={() => {
                 const d = { ...digit };
                 d.enabledSystemFont = !d.enabledSystemFont;
-                d.enabled = d.enabledImage || d.enabledSystemFont
+                d.enabled = d.enabledImage || d.enabledSystemFont || d.enabledSystemFontCircle
                 if ( !d.json.Digit.SystemFont) {
                   d.json.Digit.SystemFont = new SystemFont()
                   d.json.Digit.SystemFont.Coordinates = new Coordinates()
