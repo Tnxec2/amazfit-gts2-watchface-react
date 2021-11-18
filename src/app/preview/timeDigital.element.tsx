@@ -26,9 +26,9 @@ export default function drawTimeDigital(
     
     if (timeDigital.minutesDigital?.enabled) {
         s_minutes = watchState.minutes.toString().padStart(timeDigital.minutesDigital.con.numberLenght, '0')
-        s_minutes = addUnitsAndSeparator(s_minutes, timeDigital.minutesDigital)
+        s_minutes = addUnitsAndSeparator(s_minutes, timeDigital.minutesDigital, timeDigital.minutesDigital.json.CombingMode !== FollowType.Single.json)
         if (timeDigital.secondsDigital?.enabled ) {
-            if (timeDigital.secondsDigital.json.CombingMode === FollowType.Follow.json) {
+            if (timeDigital.secondsDigital.json.CombingMode !== FollowType.Single.json) {
                 s_minutes = s_minutes + s_seconds
                 s_seconds = ''
             } else {
@@ -41,9 +41,9 @@ export default function drawTimeDigital(
         s_hours = watchState.hours.toString()
         if (timeDigital.hoursDigital.json.Digit.PaddingZero) s_hours = s_hours.padStart(timeDigital.hoursDigital.con.numberLenght, '0')
         s_hours = addUnitsAndSeparator(s_hours, timeDigital.hoursDigital)
-        if (timeDigital.minutesDigital.json.CombingMode === FollowType.Follow.json) {
+        if (timeDigital.minutesDigital.json.CombingMode !== FollowType.Single.json) {
             if (timeDigital.secondsDigital?.enabled ) {
-                if (timeDigital.secondsDigital.json.CombingMode !== FollowType.Follow.json) 
+                if (timeDigital.secondsDigital.json.CombingMode !== FollowType.Single.json) 
                     s_seconds = s_hours + s_seconds
             }
             s_hours = s_hours + s_minutes
@@ -51,7 +51,7 @@ export default function drawTimeDigital(
         } else {
             s_minutes = s_hours + s_minutes
             if (timeDigital.secondsDigital?.enabled ) {
-                if (timeDigital.secondsDigital.json.CombingMode !== FollowType.Follow.json) 
+                if (timeDigital.secondsDigital.json.CombingMode !== FollowType.Single.json) 
                     s_seconds = s_hours + s_seconds
             }
         }

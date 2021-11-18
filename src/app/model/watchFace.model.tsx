@@ -28,7 +28,7 @@ const digitTypes = {
     numberLenght: 2,
     displayAnalog: false,
     imageProgressTotal: null,
-    unit: ['', ':', ':'],
+    unit: [':', ':', ':'],
     separator: '/',
     timeDelimiter: true,
     title: 'Hours',
@@ -39,7 +39,7 @@ const digitTypes = {
     numberLenght: 2,
     displayAnalog: false,
     imageProgressTotal: null,
-    unit: ['', ':', ':'],
+    unit: [':', ':', ':'],
     separator: '/',
     timeDelimiter: true,
     title: 'Minutes',
@@ -50,7 +50,7 @@ const digitTypes = {
     numberLenght: 2,
     displayAnalog: false,
     imageProgressTotal: null,
-    unit: ['', ':', ':'],
+    unit: [':', ':', ':'],
     separator: '/',
     timeDelimiter: true,
     title: 'Seconds',
@@ -61,7 +61,7 @@ const digitTypes = {
     numberLenght: 4,
     displayAnalog: false,
     imageProgressTotal: null,
-    unit: ['', '/', '.'],
+    unit: ['/', '/', '.'],
     separator: '/',
     title: 'Year',
   },
@@ -71,7 +71,7 @@ const digitTypes = {
     numberLenght: 2,
     displayAnalog: false,
     imageProgressTotal: null,
-    unit: ['', '/', '.'],
+    unit: ['/', '/', '.'],
     separator: '/',
     title: 'Month',
   },
@@ -384,7 +384,7 @@ export class WatchCommonDigit {
 }
 
 export class WatchClockHand {
-  enabled: boolean;
+  enabled: boolean = false;
 
   json: ClockHand = new ClockHand()
 
@@ -461,8 +461,8 @@ export class WatchStatus {
 }
 
 export class WatchProgressBar {
-  enabledLinear: boolean;
-  enabledCircle: boolean;
+  enabledLinear: boolean = false;
+  enabledCircle: boolean = false;
   jsonObj: ProgressBar;
 
   constructor(json?: ProgressBar) {
@@ -773,7 +773,7 @@ export class WatchWidget {
 }
 
 export class WatchWidgets {
-  enabled: boolean
+  enabled: boolean = false;
   collapsed = true;
   topMaskImageIndex: number
   underMaskImageIndex: number

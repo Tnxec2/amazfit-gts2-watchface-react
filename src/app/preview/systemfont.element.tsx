@@ -72,13 +72,14 @@ export function drawSystemFontFontRotated(
     return null
 }
 
-export function addUnitsAndSeparator(text: string, digit: WatchCommonDigit): string {
+export function addUnitsAndSeparator(text: string, digit: WatchCommonDigit, forceSeparator?: boolean): string {
     let systemFont = digit.json.Digit?.SystemFont
     let result = text
     if ( !systemFont) return result
-    if (systemFont.ShowUnitCheck === -1) {
+   
+    if (systemFont.ShowUnitCheck === -1 || ( systemFont.ShowUnitCheck !== 0 && forceSeparator) ) {
         result = result + digit.con.unit[0]
-    } else if (systemFont.ShowUnitCheck === 1) {
+    } else if (systemFont.ShowUnitCheck === 1 ) {
         result = result + digit.con.unit[1]
     } else if ( systemFont.ShowUnitCheck === 2) {
         result = result + digit.con.unit[2]

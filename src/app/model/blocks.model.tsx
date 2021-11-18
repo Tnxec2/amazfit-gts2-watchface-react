@@ -22,7 +22,7 @@ export interface IOption {
 }
 
 export const OptionsAlignment: IOption[] =  [ {value:'0', title: 'Left'}, {value: '1', title: 'Center'}, {value:'2', title: 'Right'}]
-export const OptionsUnitSystemFont: IOption[] =  [ {value:'-1', title: 'Default'}, {value: '1', title: 'Normal'}, {value:'2', title: 'Alt'}]
+export const OptionsUnitSystemFont: IOption[] =  [ {value:'-1', title: 'Default'}, {value:'0', title: 'None'}, {value: '1', title: 'Normal'}, {value:'2', title: 'Alt'}]
 export const OptionsSystemFontDirection: IOption[] =  [ {value:'0', title: 'Clockwise'}, {value: '1', title: 'Counter clock'}]
 export const OptionsLineEndingLine: IOption[] =  [ {value:'0', title: 'Circle'}, {value:'180', title: 'Flat'}]
 export const OptionsLineEndingCircle: IOption[] =  [ {value:'0', title: 'Circle'}, {value: '90', title: 'Triangle'}, {value:'180', title: 'Flat'}]

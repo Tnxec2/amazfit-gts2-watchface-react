@@ -51,7 +51,7 @@ const SystemFontComponent: FC<IProps> = ({
     },
     {
       blocks: [
-        { title: 'Unit', type: BlockType.Select, svalue: digit.json?.Digit?.SystemFont?.ShowUnitCheck ? digit.json?.Digit?.SystemFont.ShowUnitCheck?.toString() : '-1', onChange: onChangeUnitCheck, selectOptions: OptionsUnitSystemFont },
+        { title: 'Unit', type: BlockType.Select, svalue: digit.json?.Digit?.SystemFont?.ShowUnitCheck ? digit.json?.Digit?.SystemFont.ShowUnitCheck?.toString() : '0', onChange: onChangeUnitCheck, selectOptions: OptionsUnitSystemFont },
         { title: 'Separator', type: BlockType.Checkbox, checked: digit.json?.Separator ? true : false, onChange: onChangeSeparator },
       ]
     }

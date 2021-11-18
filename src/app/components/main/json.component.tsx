@@ -58,7 +58,7 @@ const JsonComponent: FC = () => {
                     }
                 ] : null,
                 BackgroundImageIndex: w.background.imageIndex ,
-                Color: w.background.color ? Color.colorBackgroundWrite(w.background.color) : null
+                Color: !w.background.imageIndex && w.background.color ? Color.colorBackgroundWrite(w.background.color) : null
             } : null
             ,
             DialFace: dialFaceEnabled ? {
