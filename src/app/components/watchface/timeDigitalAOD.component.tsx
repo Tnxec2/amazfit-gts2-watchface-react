@@ -67,7 +67,7 @@ const TimeDigitalAODComponent: FC<IProps> = ({collapsed = true, setCollapsed}) =
       <Card.Body className={`${collapsed ? "collapse" : ""}`}>
         <ImageDigitComponent
           title="Hours"
-          digit={watchface.aod.dialFace.hoursDigital}
+          digit={{...watchface.aod.dialFace.hoursDigital}}
           onUpdate={updateHoursDigit}
           showDecimalPointer={false}
           showDelimiter={false}
@@ -78,19 +78,19 @@ const TimeDigitalAODComponent: FC<IProps> = ({collapsed = true, setCollapsed}) =
         />
         <SystemFontComponent
             title="Hours Systemfont Rotated"
-            digit={watchface.aod.dialFace.hoursDigital}
+            digit={{...watchface.aod.dialFace.hoursDigital}}
             onUpdate={updateHoursDigit}
             followDisabled={true}
           />
         <SystemFontCircleComponent
             title="Hours Systemfont Circle"
-            digit={watchface.aod.dialFace.hoursDigital}
+            digit={{...watchface.aod.dialFace.hoursDigital}}
             onUpdate={updateHoursDigit}
             followDisabled={true}
         />
         <ImageDigitComponent
           title="Minutes"
-          digit={watchface.aod.dialFace.minutesDigital}
+          digit={{...watchface.aod.dialFace.minutesDigital}}
           onUpdate={updateMinutesDigit}
           showDecimalPointer={false}
           showDelimiter={false}
@@ -100,21 +100,21 @@ const TimeDigitalAODComponent: FC<IProps> = ({collapsed = true, setCollapsed}) =
         />
         <SystemFontComponent
             title="Minutes Systemfont Rotated"
-            digit={watchface.aod.dialFace.minutesDigital}
+            digit={{...watchface.aod.dialFace.minutesDigital}}
             onUpdate={updateMinutesDigit}
           />
         <SystemFontCircleComponent
             title="Minutes Systemfont Circle"
-            digit={watchface.aod.dialFace.minutesDigital}
+            digit={{...watchface.aod.dialFace.minutesDigital}}
             onUpdate={updateMinutesDigit}
         />
         <MultilangImageCoordsComponent
           title="AM"
-          imageCoords={watchface.aod.dialFace.am}
+          imageCoords={{...watchface.aod.dialFace.am}}
           onUpdate={updateAm} />
         <MultilangImageCoordsComponent
           title="PM"
-          imageCoords={watchface.aod.dialFace.pm}
+          imageCoords={{...watchface.aod.dialFace.pm}}
           onUpdate={updatePm} />
       </Card.Body>
     </Card>

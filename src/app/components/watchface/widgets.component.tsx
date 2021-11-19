@@ -101,7 +101,7 @@ const WidgetsComponent: FC = () => {
                 <WidgetComponent
                   key={index}
                   title={`Widget ${index+1}`}
-                  widget={item}
+                  widget={{...item}}
                   onUpdate={(widget) => updateWidget(index, widget)}
                   onDelete={(e) => deleteWidget(e, index)}
                 />

@@ -26,7 +26,7 @@ const StatusComponent: FC = () => {
       <Card.Body className={`${collapsed ? "collapse" : ""}`}>
         <ImageCoordsComponent
           title="Bluetooth"
-          imageCoords={watchface.status.bluetooth}
+          imageCoords={{...watchface.status.bluetooth}}
           onUpdate={(ic) => {
             const status: WatchStatus = {...watchface.status, bluetooth: ic}
             updateStatus(status)
@@ -34,7 +34,7 @@ const StatusComponent: FC = () => {
         />
         <ImageCoordsComponent
           title="Do Not Disturb"
-          imageCoords={watchface.status.dnd}
+          imageCoords={{...watchface.status.dnd}}
           onUpdate={(ic) => {
             const status: WatchStatus = {...watchface.status, dnd: ic}
             updateStatus(status)
@@ -42,7 +42,7 @@ const StatusComponent: FC = () => {
         />
         <ImageCoordsComponent
           title="Alarm"
-          imageCoords={watchface.status.alarm}
+          imageCoords={{...watchface.status.alarm}}
           onUpdate={(ic) => {
             const status: WatchStatus = {...watchface.status, alarm: ic}
             updateStatus(status)
@@ -50,7 +50,7 @@ const StatusComponent: FC = () => {
         />
         <ImageCoordsComponent
           title="Lock"
-          imageCoords={watchface.status.lock}
+          imageCoords={{...watchface.status.lock}}
           onUpdate={(ic) => {
             const status: WatchStatus = {...watchface.status, lock: ic}
             updateStatus(status)

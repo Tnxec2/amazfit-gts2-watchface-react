@@ -24,7 +24,7 @@ const TimeAnalogComponent: FC<IProps> = ({collapsed = true, setCollapsed}) => {
       <Card.Body className={`${collapsed ? "collapse" : ""}`}>
         <ClockHandComponent
           title="Hours"
-          clockHand={watchface.dialFace.hoursClockhand}
+          clockHand={{...watchface.dialFace.hoursClockhand}}
           showAngle={false}
           onUpdate={(ch) => {
             const w = { ...watchface };
@@ -35,7 +35,7 @@ const TimeAnalogComponent: FC<IProps> = ({collapsed = true, setCollapsed}) => {
 
         <ClockHandComponent
           title="Minutes"
-          clockHand={watchface.dialFace.minutesClockhand}
+          clockHand={{...watchface.dialFace.minutesClockhand}}
           onUpdate={(ch) => {
             const d = { ...watchface };
             d.dialFace.minutesClockhand = ch;
@@ -46,7 +46,7 @@ const TimeAnalogComponent: FC<IProps> = ({collapsed = true, setCollapsed}) => {
 
         <ClockHandComponent
           title="Seconds"
-          clockHand={watchface.dialFace.secondsClockhand}
+          clockHand={{...watchface.dialFace.secondsClockhand}}
           onUpdate={(ch) => {
             const w = { ...watchface };
             w.dialFace.secondsClockhand = ch;

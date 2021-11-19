@@ -44,7 +44,7 @@ const AodComponent: FC = () => {
         }}
       />
       <DateComponent
-        date={watchface.aod.date} 
+        date={{...watchface.aod.date}}
         onUpdate={updateDate}
         collapsed={watchface.aod.date.collapsed}
         setCollapsed={(c) => {
@@ -54,7 +54,7 @@ const AodComponent: FC = () => {
         }}
       />
       <ActivityListComponent
-        activitys={watchface.aod.activitylist}
+        activitys={{...watchface.aod.activitylist}}
         onUpdate={updateActivitys}
         collapsed={watchface.aod.activitylistCollapsed}
         setCollapsed={(collapsed) => {

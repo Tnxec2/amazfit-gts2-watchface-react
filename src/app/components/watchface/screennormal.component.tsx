@@ -45,7 +45,7 @@ const ScreenNormalcomponent: FC = () => {
         }}
       />
       <DateComponent
-        date={watchface.date}
+        date={{...watchface.date}}
         onUpdate={updateDate}
         collapsed={watchface.date.collapsed}
         setCollapsed={(c) => {
@@ -56,7 +56,7 @@ const ScreenNormalcomponent: FC = () => {
 
       />
       <ActivityListComponent
-        activitys={watchface.activity}
+        activitys={{...watchface.activity}}
         onUpdate={updateActivitys}
         collapsed={watchface.activitylistCollapsed}
         setCollapsed={(collapsed) => {

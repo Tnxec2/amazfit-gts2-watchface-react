@@ -35,7 +35,7 @@ const TimeAnalogAODComponent: FC<IProps> = ({collapsed = true, setCollapsed}) =>
       <Card.Body className={`${collapsed ? "collapse" : ""}`}>
         <ClockHandComponent
           title="Hours"
-          clockHand={watchface.aod.dialFace.hoursClockhand}
+          clockHand={{...watchface.aod.dialFace.hoursClockhand}}
           showAngle={false}
           onUpdate={(ch) => {
             const w = { ...watchface };
@@ -47,7 +47,7 @@ const TimeAnalogAODComponent: FC<IProps> = ({collapsed = true, setCollapsed}) =>
 
         <ClockHandComponent
           title="Minutes"
-          clockHand={watchface.aod.dialFace.minutesClockhand}
+          clockHand={{...watchface.aod.dialFace.minutesClockhand}}
           onUpdate={(ch) => {
             const w = { ...watchface };
             w.aod.dialFace.minutesClockhand = ch;
