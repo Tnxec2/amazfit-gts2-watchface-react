@@ -27,36 +27,16 @@ const AodComponent: FC = () => {
   return (
     <>
       <BackgroundAODComponent />
-      <TimeDigitalAODComponent
-      collapsed={watchface.aod.dialFace.collapsedDigital}
-      setCollapsed={(c) => {
-        let s = {...watchface};
-        s.aod.dialFace.collapsedDigital = c;
-        setWatchface(s)
-      }}
-       />
-      <TimeAnalogAODComponent 
-        collapsed={watchface.aod.dialFace.collapsedAnalog}
-        setCollapsed={(c) => {
-          let s = {...watchface};
-          s.aod.dialFace.collapsedAnalog = c;
-          setWatchface(s)
-        }}
-      />
+      <TimeDigitalAODComponent/>
+      <TimeAnalogAODComponent/>
       <DateComponent
         date={{...watchface.aod.date}}
         onUpdate={updateDate}
-        collapsed={watchface.aod.date.collapsed}
-        setCollapsed={(c) => {
-          let s = {...watchface};
-          s.aod.date.collapsed = c;
-          setWatchface(s)
-        }}
       />
       <ActivityListComponent
-        activitys={{...watchface.aod.activitylist}}
+        activitys={[...watchface.aod.activitylist]}
         onUpdate={updateActivitys}
-        collapsed={watchface.aod.activitylistCollapsed}
+        collapsed={{...watchface.aod}.activitylistCollapsed}
         setCollapsed={(collapsed) => {
           let s = {...watchface};
           s.aod.activitylistCollapsed = collapsed;

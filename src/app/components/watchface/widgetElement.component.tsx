@@ -52,12 +52,6 @@ const WidgetElementComponent: FC<IProps> = ({index, element, onDelete, onUpdate,
           <DateComponent
               date={element.date}
               onUpdate={updateDate}
-              collapsed={element.date.collapsed}
-              setCollapsed={(c) => {
-                let _we = { ...element };
-                _we.date.collapsed = c;
-                onUpdate(_we)
-              }}
            />
           <ActivityListComponent
               activitys={element.activitys}

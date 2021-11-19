@@ -9,11 +9,9 @@ import SystemFontCircleComponent from "./systemFontCircle.component";
 interface IProps {
   date: WatchDate,
   onUpdate(date: WatchDate): void,
-  collapsed: boolean,
-  setCollapsed(collapsed: boolean): void,
 }
 
-const DateComponent: FC<IProps> = ({ date, onUpdate, collapsed, setCollapsed }) => {
+const DateComponent: FC<IProps> = ({ date, onUpdate }) => {
 
   const [collapsedOrderElement, setCollapsedOrderelement] = useState<boolean>(true)
 
@@ -54,12 +52,14 @@ const DateComponent: FC<IProps> = ({ date, onUpdate, collapsed, setCollapsed }) 
       <Card>
         <Card.Header
           onClick={() => {
-            setCollapsed(!collapsed);
+            let d = {...date};
+            d.collapsed = !d.collapsed;
+            onUpdate(d);
           }}
         >
           Date
         </Card.Header>
-        <Card.Body className={`${collapsed ? "collapse" : ""}`}>
+        <Card.Body className={`${date.collapsed ? "collapse" : ""}`}>
 
           <Card className='mb-1'>
             <Card.Header

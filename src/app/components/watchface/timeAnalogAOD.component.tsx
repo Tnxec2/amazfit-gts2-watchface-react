@@ -3,12 +3,7 @@ import { Card } from "react-bootstrap";
 import { IWatchContext, WatchfaceContext } from "../../context";
 import ClockHandComponent from "./clockHand.component";
 
-interface IProps {
-  collapsed: boolean,
-  setCollapsed(collapsed: boolean): void,
-}
-
-const TimeAnalogAODComponent: FC<IProps> = ({collapsed = true, setCollapsed}) => {
+const TimeAnalogAODComponent: FC = () => {
   const { watchface, setWatchface } =
     useContext<IWatchContext>(WatchfaceContext);
 
@@ -27,12 +22,14 @@ const TimeAnalogAODComponent: FC<IProps> = ({collapsed = true, setCollapsed}) =>
     <Card>
       <Card.Header
         onClick={() => {
-          setCollapsed(!collapsed);
+          let w = {...watchface};
+          w.aod.dialFace.collapsedAnalog = !w.aod.dialFace.collapsedAnalog;
+          setWatchface(w);
         }}
       >
         Time Analog
       </Card.Header>
-      <Card.Body className={`${collapsed ? "collapse" : ""}`}>
+      <Card.Body className={`${watchface.aod.dialFace.collapsedAnalog ? "collapse" : ""}`}>
         <ClockHandComponent
           title="Hours"
           clockHand={{...watchface.aod.dialFace.hoursClockhand}}

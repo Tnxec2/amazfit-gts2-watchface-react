@@ -7,12 +7,7 @@ import MultilangImageCoordsComponent from "./multiLangImageCoords.component";
 import SystemFontComponent from "./systemFont.component";
 import SystemFontCircleComponent from "./systemFontCircle.component";
 
-interface IProps {
-  collapsed: boolean,
-  setCollapsed(collapsed: boolean): void,
-}
-
-const TimeDigitalComponent: FC<IProps> = ({collapsed = true, setCollapsed}) => {
+const TimeDigitalComponent: FC = () => {
   const { watchface, setWatchface } =
     useContext<IWatchContext>(WatchfaceContext);
 
@@ -53,12 +48,14 @@ const TimeDigitalComponent: FC<IProps> = ({collapsed = true, setCollapsed}) => {
     <Card>
       <Card.Header
         onClick={() => {
-          setCollapsed(!collapsed);
+          let w = {...watchface};
+          w.dialFace.collapsedDigital = !w.dialFace.collapsedDigital;
+          setWatchface(w);
         }}
       >
         Time Digital
       </Card.Header>
-      <Card.Body className={`${collapsed ? "collapse" : ""}`}>
+      <Card.Body className={`${watchface.dialFace.collapsedDigital ? "collapse" : ""}`}>
         <ImageDigitComponent
           title="Hours Digits"
           digit={{...watchface.dialFace.hoursDigital}}

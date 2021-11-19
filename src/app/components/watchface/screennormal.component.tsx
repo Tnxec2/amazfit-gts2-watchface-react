@@ -27,38 +27,17 @@ const ScreenNormalcomponent: FC = () => {
 
   return (
     <>
-      <BackgroundComponent />
-      <TimeDigitalComponent
-        collapsed={watchface.dialFace.collapsedDigital}
-        setCollapsed={(c) => {
-          let wf = { ...watchface };
-          wf.dialFace.collapsedDigital = c;
-          setWatchface(wf)
-        }}
-      />
-      <TimeAnalogComponent
-        collapsed={watchface.dialFace.collapsedAnalog}
-        setCollapsed={(c) => {
-          let wf = { ...watchface };
-          wf.dialFace.collapsedAnalog = c;
-          setWatchface(wf)
-        }}
-      />
+      <BackgroundComponent/>
+      <TimeDigitalComponent/>
+      <TimeAnalogComponent/>
       <DateComponent
         date={{...watchface.date}}
         onUpdate={updateDate}
-        collapsed={watchface.date.collapsed}
-        setCollapsed={(c) => {
-          let wf = { ...watchface };
-          wf.date.collapsed = c;
-          setWatchface(wf)
-        }}
-
       />
       <ActivityListComponent
-        activitys={{...watchface.activity}}
+        activitys={[...watchface.activity]}
         onUpdate={updateActivitys}
-        collapsed={watchface.activitylistCollapsed}
+        collapsed={{...watchface}.activitylistCollapsed}
         setCollapsed={(collapsed) => {
           let w = { ...watchface };
           w.activitylistCollapsed = collapsed;
