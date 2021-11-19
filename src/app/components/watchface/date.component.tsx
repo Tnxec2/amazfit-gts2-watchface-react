@@ -79,59 +79,59 @@ const DateComponent: FC<IProps> = ({ date, onUpdate }) => {
 
           <ImageDigitComponent
             title="Day Digit"
-            digit={date.day}
+            digit={{...date.day}}
             onUpdate={updateDay}
           />
           <SystemFontComponent
             title="Day Systemfont Rotated"
-            digit={date.day}
+            digit={{...date.day}}
             onUpdate={updateDay}
           />
           <SystemFontCircleComponent
             title="Day Systemfont Circle"
-            digit={date.day}
+            digit={{...date.day}}
             onUpdate={updateDay}
           />
 
           <ImageDigitComponent
             title="Month"
-            digit={date.month}
+            digit={{...date.month}}
             onUpdate={updateMonth}
           />
           <SystemFontComponent
             title="Month Systemfont Rotated"
-            digit={date.month}
+            digit={{...date.month}}
             onUpdate={updateMonth}
           />
           <SystemFontCircleComponent
             title="Month Systemfont Circle"
-            digit={date.month}
+            digit={{...date.month}}
             onUpdate={updateMonth}
           />
           <ImageDigitComponent
             title="Month as word"
-            digit={date.monthAsWord}
+            digit={{...date.monthAsWord}}
             onUpdate={updateMonthAsWord}
             paddingZeroFix={true}
           />
           <ImageDigitComponent
             title="Year"
-            digit={date.year}
+            digit={{...date.year}}
             onUpdate={updateYear}
           />
           <SystemFontComponent
             title="Year Systemfont Rotated"
-            digit={date.year}
+            digit={{...date.year}}
             onUpdate={updateYear}
           />
           <SystemFontCircleComponent
             title="Year Systemfont Circle"
-            digit={date.year}
+            digit={{...date.year}}
             onUpdate={updateYear}
           />
           <ImageDigitComponent
             title="Weekday"
-            digit={date.weekDay}
+            digit={{...date.weekDay}}
             onUpdate={updateWeekday}
             paddingZeroFix={true}
           />

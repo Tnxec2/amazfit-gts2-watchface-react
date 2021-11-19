@@ -81,7 +81,7 @@ const ActivityListComponent: FC<IProps> = ({
               _list={activitys.map((item, index) => ( { item: item, reactItem:
                 <ActivityComponent
                   key={item.key}
-                  activity={item}
+                  activity={{...item}}
                   onUpdateActivity={(a) => updateActivity(index, a)}
                   onDelete={(e) => deleteActivity(e, index)}
                   showNoData={true}

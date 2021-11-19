@@ -165,7 +165,7 @@ const WidgetComponent: FC<IProps> = ({ title, widget, onUpdate, onDelete }) => {
                 <WidgetElementComponent
                   key={index}
                   index={index}
-                  element={element}
+                  element={{...element}}
                   defaultCount={1}
                   onDelete={(e) => deleteElement(e, index)}
                   onUpdate={(element) => updateElement(index, element)}

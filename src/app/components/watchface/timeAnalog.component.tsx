@@ -11,8 +11,9 @@ const TimeAnalogComponent: FC = () => {
     <Card>
       <Card.Header
         onClick={() => {
-          let w = {...watchface}
-          w.dialFace.collapsedAnalog = !w.dialFace.collapsedAnalog
+          let w = {...watchface};
+          w.dialFace.collapsedAnalog = !w.dialFace.collapsedAnalog;
+          setWatchface(w);
         }}
       >
         Time Analog

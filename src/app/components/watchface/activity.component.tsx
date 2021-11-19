@@ -87,7 +87,7 @@ const ActivityComponent: FC<IProps> = ({
               activity with temperature.
             </div> : ''}
           <ActivityDigitComponent
-            digit={activity.digit}
+            digit={{...activity.digit}}
             title={titleDefault ? titleDefault : title}
             onUpdate={onUpdateDigit}
             showDecimalPointer={showDecimalPointer}
@@ -98,7 +98,7 @@ const ActivityComponent: FC<IProps> = ({
 
           {titleMin ?
             <ActivityDigitComponent
-              digit={activity.digitMin}
+              digit={{...activity.digitMin}}
               title={titleMin}
               onUpdate={onUpdateDigitMin}
               showDecimalPointer={showDecimalPointer}
@@ -109,7 +109,7 @@ const ActivityComponent: FC<IProps> = ({
 
           {titleMax ?
             <ActivityDigitComponent
-              digit={activity.digitMax}
+              digit={{...activity.digitMax}}
               title={titleMax}
               onUpdate={onUpdateDigitMax}
               showDecimalPointer={showDecimalPointer}
@@ -121,7 +121,7 @@ const ActivityComponent: FC<IProps> = ({
           {showProgress === undefined || showProgress === true ?
             <>
               <ImageProgressComponent
-                imageProgress={activity.imageProgress}
+                imageProgress={{...activity.imageProgress}}
                 onUpdate={(d) => {
                   const a = { ...activity };
                   a.imageProgress = {...d};
@@ -129,7 +129,7 @@ const ActivityComponent: FC<IProps> = ({
                 }}
               />
               <ProgressbarCircleCodmponent
-                progressBar={activity.progressBar}
+                progressBar={{...activity.progressBar}}
                 onUpdate={(d) => {
                   const a = { ...activity };
                   a.progressBar = {...d};
@@ -137,7 +137,7 @@ const ActivityComponent: FC<IProps> = ({
                 }}
               />
               <ProgressbarLinearCodmponent
-                progressBar={activity.progressBar}
+                progressBar={{...activity.progressBar}}
                 onUpdate={(d) => {
                   const a = { ...activity };
                   a.progressBar = {...d};
@@ -146,7 +146,7 @@ const ActivityComponent: FC<IProps> = ({
               />
               <ClockHandComponent
                 title="Pointer Progress"
-                clockHand={activity.pointerProgress}
+                clockHand={{...activity.pointerProgress}}
                 onUpdate={(ch) => {
                   const a = { ...activity };
                   a.pointerProgress = {...ch};
@@ -158,7 +158,7 @@ const ActivityComponent: FC<IProps> = ({
           {activity.icon ? (
             <ImageCoordsComponent
               title="Icon"
-              imageCoords={activity.icon}
+              imageCoords={{...activity.icon}}
               onUpdate={(ip) => {
                 const a = { ...activity };
                 a.icon = {...ip};
