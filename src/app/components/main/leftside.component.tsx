@@ -4,6 +4,7 @@ import ScreenNormalcomponent from "../watchface/screennormal.component";
 import PreviewStatesComponent from "./previewstates.component";
 import AodComponent from "../watchface/aod.component";
 import WidgetsComponent from "../watchface/widgets.component";
+import { Constant } from "../../shared/constant";
 
 const tabs = [
   {
@@ -44,6 +45,9 @@ const LeftSideComponent: FC = () => {
   return (
     <div>
       <ul className="nav nav-tabs">
+      <span className="navbar-brand mb-0 h1">
+        {Constant.DEVICE}
+      </span>
         {tabs.map((tab) => {
           return (
             <li key={tab.id} className="nav-item">
