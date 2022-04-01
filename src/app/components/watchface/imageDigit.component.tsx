@@ -42,8 +42,8 @@ const ImageDigitComponent: FC<IProps> = ({
     },
     {
       blocks: [
-        { title: 'X', type: BlockType.Number, nvalue: digit.json.Digit?.Image?.X ? digit.json.Digit.Image.X : 0, onChange: onChangeX },
-        { title: 'Y', type: BlockType.Number, nvalue: digit.json.Digit?.Image?.Y ? digit.json.Digit.Image.Y : 0, onChange: onChangeY },
+        { title: 'X', type: BlockType.Number, nvalue: digit.json?.Digit?.Image?.X ? digit.json.Digit.Image.X : 0, onChange: onChangeX },
+        { title: 'Y', type: BlockType.Number, nvalue: digit.json?.Digit?.Image?.Y ? digit.json.Digit.Image.Y : 0, onChange: onChangeY },
       ]
     },
     {
@@ -70,25 +70,25 @@ const ImageDigitComponent: FC<IProps> = ({
       ]
     },
     {
-      disabled: digit.json.Digit.DisplayFormAnalog,
+      disabled: digit.json?.Digit.DisplayFormAnalog,
       blocks: [
         { title: 'padding zero', type: BlockType.Checkbox, checked: digit.json?.Digit?.PaddingZero || paddingZeroFix, onChange: onChangePaddingZero, disabled: paddingZeroFix },
         { title: 'spacing', type: BlockType.Number, nvalue: digit.json?.Digit?.Spacing ? digit.json.Digit.Spacing : 0, onChange: onChangeSpacing },
       ]
     },
     {
-      disabled: digit.json.Digit.DisplayFormAnalog,
+      disabled: digit.json?.Digit.DisplayFormAnalog,
       blocks: [
         { title: 'follow', type: BlockType.Checkbox, checked: digit.json?.CombingMode !== FollowType.Single.json, onChange: onChangeFollow, disabled: followDisabled },
         { title: 'alignment', type: BlockType.Select, svalue: AlignmentType.fromJson(digit.json?.Digit?.Alignment).toString(), selectOptions: OptionsAlignment,  onChange: onChangeAlignment },
       ]
     },
     {
-      disabled: digit.json.Digit.DisplayFormAnalog,
+      disabled: digit.json?.Digit.DisplayFormAnalog,
       blocks: [
         { title: 'Separator', type: BlockType.SelectFile, nvalue: digit.json?.Separator?.ImageIndex, onChange: onChangeSeparator },
-        { title: 'X', type: BlockType.Number, nvalue: digit.json.Separator?.Coordinates?.X ? digit.json.Separator.Coordinates.X : 0, onChange: onChangeSeparatorX },
-        { title: 'Y', type: BlockType.Number, nvalue: digit.json.Separator?.Coordinates?.Y ? digit.json.Separator.Coordinates.Y : 0, onChange: onChangeSeparatorY },
+        { title: 'X', type: BlockType.Number, nvalue: digit.json?.Separator?.Coordinates?.X ? digit.json.Separator.Coordinates.X : 0, onChange: onChangeSeparatorX },
+        { title: 'Y', type: BlockType.Number, nvalue: digit.json?.Separator?.Coordinates?.Y ? digit.json.Separator.Coordinates.Y : 0, onChange: onChangeSeparatorY },
       ]
     },
   ], [digit]) // eslint-disable-line react-hooks/exhaustive-deps
@@ -101,7 +101,7 @@ const ImageDigitComponent: FC<IProps> = ({
 
   function onChangeImageIndex(index: number) {
     const d = {...digit};
-    if (!d.json.Digit.Image.MultilangImage) {
+    if (!d.json?.Digit.Image.MultilangImage) {
       d.json.Digit.Image.MultilangImage = []
     }
     if (!d.json.Digit.Image.MultilangImage[imageSetIndex]) {
@@ -197,7 +197,7 @@ const ImageDigitComponent: FC<IProps> = ({
     const d = {...digit};
     if (!index) d.json.Separator = null
     else {
-      if ( !d.json.Separator) d.json.Separator = new ImageCoord()
+      if ( !d.json?.Separator) d.json.Separator = new ImageCoord()
       d.json.Separator.ImageIndex = index;
     }
     onUpdate(d);
@@ -205,14 +205,14 @@ const ImageDigitComponent: FC<IProps> = ({
 
   function onChangeSeparatorX(val: number) {
     const d = {...digit};
-    if ( !d.json.Separator) d.json.Separator = new ImageCoord()
+    if ( !d.json?.Separator) d.json.Separator = new ImageCoord()
     d.json.Separator.Coordinates.X = val;
     onUpdate(d);
   }
 
   function onChangeSeparatorY(val: number) {
     const d = {...digit};
-    if ( !d.json.Separator) d.json.Separator = new ImageCoord()
+    if ( !d.json?.Separator) d.json.Separator = new ImageCoord()
     d.json.Separator.Coordinates.Y = val;
     onUpdate(d);
   }
@@ -231,7 +231,7 @@ const ImageDigitComponent: FC<IProps> = ({
                 const d = { ...digit };
                 d.enabledImage = !d.enabledImage;
                 d.enabled = d.enabledImage || d.enabledSystemFont || d.enabledSystemFontCircle
-                if ( !d.json.Digit.Image) {
+                if ( !d.json?.Digit.Image) {
                   d.json.Digit.Image = new Image()
                   let digitimage = new MultilangImage()
                   digitimage.ImageSet.ImagesCount = d.con.count

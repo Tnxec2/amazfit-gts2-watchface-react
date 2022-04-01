@@ -31,15 +31,15 @@ const SystemFontComponent: FC<IProps> = ({
   const ar = useMemo<IRow[]>(() => [
     {
       blocks: [
-        { title: 'X', type: BlockType.Number, nvalue: digit.json.Digit?.SystemFont?.Coordinates?.X ? digit.json.Digit.SystemFont.Coordinates.X : 0, onChange: onChangeX },
-        { title: 'Y', type: BlockType.Number, nvalue: digit.json.Digit?.SystemFont?.Coordinates?.Y ? digit.json.Digit.SystemFont.Coordinates.Y : 0, onChange: onChangeY },
-        { title: 'Color', type: BlockType.Color, svalue: digit.json.Digit?.SystemFont?.Color ? Color.colorRead(digit.json.Digit.SystemFont.Color) : Color.DEFAULT_COLOR, onChange: onChangeColor },
+        { title: 'X', type: BlockType.Number, nvalue: digit.json?.Digit?.SystemFont?.Coordinates?.X ? digit.json.Digit.SystemFont.Coordinates.X : 0, onChange: onChangeX },
+        { title: 'Y', type: BlockType.Number, nvalue: digit.json?.Digit?.SystemFont?.Coordinates?.Y ? digit.json.Digit.SystemFont.Coordinates.Y : 0, onChange: onChangeY },
+        { title: 'Color', type: BlockType.Color, svalue: digit.json?.Digit?.SystemFont?.Color ? Color.colorRead(digit.json.Digit.SystemFont.Color) : Color.DEFAULT_COLOR, onChange: onChangeColor },
       ]
     },
     {
       blocks: [
-        { title: 'Size', type: BlockType.Number, nvalue: digit.json.Digit?.SystemFont?.Size ? digit.json.Digit.SystemFont.Size : 0, onChange: onChangeSize },
-        { title: 'Angle', type: BlockType.Number, nvalue: digit.json.Digit?.SystemFont?.Angle ? digit.json.Digit.SystemFont.Angle : 0, onChange: onChangeAngle },
+        { title: 'Size', type: BlockType.Number, nvalue: digit.json?.Digit?.SystemFont?.Size ? digit.json.Digit.SystemFont.Size : 0, onChange: onChangeSize },
+        { title: 'Angle', type: BlockType.Number, nvalue: digit.json?.Digit?.SystemFont?.Angle ? digit.json.Digit.SystemFont.Angle : 0, onChange: onChangeAngle },
       ]
     },
     {

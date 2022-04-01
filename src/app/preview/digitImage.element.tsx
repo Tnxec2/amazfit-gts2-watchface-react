@@ -17,28 +17,28 @@ export default function drawDigitImage(
     ): [number, number] | null  {
     const x = followXY ? followXY[0] : ( digit.json?.Digit?.Image?.X ? digit.json?.Digit?.Image?.X : 0 )
     const y = followXY ? followXY[1] : ( digit.json?.Digit?.Image?.Y ? digit.json?.Digit?.Image?.Y : 0 )
-    const imageSetIndex = findImageIndex(digit.json.Digit?.Image?.MultilangImage);
-    const unitImageSetIndex =findImageIndex(digit.json.Digit?.Image?.MultilangImageUnit);
+    const imageSetIndex = findImageIndex(digit.json?.Digit?.Image?.MultilangImage);
+    const unitImageSetIndex =findImageIndex(digit.json?.Digit?.Image?.MultilangImageUnit);
 
     //console.log(number, x, y, imageSetIndex, digit.json.Digit.Image.MultilangImage[imageSetIndex]?.ImageSet?.ImageIndex);
     
 
-    if (digit.json.Digit?.Image?.MultilangImage &&
+    if (digit.json?.Digit?.Image?.MultilangImage &&
         digit.json.Digit.Image.MultilangImage[imageSetIndex]?.ImageSet?.ImageIndex) {
             let strNumber = number.toString()
             if (number < 0) strNumber = (-number).toString()
-            if ( !digit.json.Digit.DisplayFormAnalog && (digit.json.Digit.PaddingZero || paddingZeroFix)) {
+            if ( !digit.json?.Digit.DisplayFormAnalog && (digit.json?.Digit?.PaddingZero || paddingZeroFix)) {
                 strNumber = strNumber.padStart(digit.con.numberLenght, '0' )
             }
             let ar: HTMLImageElement[] = []
-            if (digit.json.Digit.Image.DelimiterImageIndex) {
+            if (digit.json?.Digit.Image.DelimiterImageIndex) {
                 if (number < 0){
                     const img = findImageById(digit.json.Digit.Image.DelimiterImageIndex, images)
                     if (img) ar.push(img)
                 }
             }
 
-            if (digit.json.Digit.DisplayFormAnalog) {
+            if (digit.json?.Digit.DisplayFormAnalog) {
                 const img = findImageById(digit.json.Digit.Image.MultilangImage[imageSetIndex].ImageSet.ImageIndex + number, images)
                 if (img) ar.push(img)
             } else {

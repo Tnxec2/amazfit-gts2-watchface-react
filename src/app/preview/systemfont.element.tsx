@@ -73,7 +73,7 @@ export function drawSystemFontFontRotated(
 }
 
 export function addUnitsAndSeparator(text: string, digit: WatchCommonDigit, forceSeparator?: boolean): string {
-    let systemFont = digit.json.Digit?.SystemFont
+    let systemFont = digit.json?.Digit?.SystemFont
     let result = text
     if ( !systemFont) return result
    
@@ -84,7 +84,7 @@ export function addUnitsAndSeparator(text: string, digit: WatchCommonDigit, forc
     } else if ( systemFont.ShowUnitCheck === 2) {
         result = result + digit.con.unit[2]
     } 
-    if (digit.json.Separator) {
+    if (digit.json?.Separator) {
         result = result + digit.con.separator
     }
     return result;
@@ -93,7 +93,7 @@ export function addUnitsAndSeparator(text: string, digit: WatchCommonDigit, forc
 export function getSystemFontText(digit: WatchCommonDigit, value: number): string {
     let systemFontText = value.toString()
     
-    if (digit.json.Digit.PaddingZero) {
+    if (digit.json?.Digit?.PaddingZero) {
         systemFontText = systemFontText.padStart(digit.con.numberLenght, '0')
     }
     if (digit.con.decimalDelimiter) {
