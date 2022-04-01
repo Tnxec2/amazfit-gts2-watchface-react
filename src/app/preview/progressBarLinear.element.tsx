@@ -68,9 +68,9 @@ export default function drawProgressBarLinear(ctx: CanvasRenderingContext2D,
                     let x = lineB.StartX ? lineB.StartX : 0
                     let y = lineB.StartY ? lineB.StartY : 0
                     let endx = lineB.EndX ? lineB.EndX : x
-                    let width = value * (endx - x) / total - img.width
+                    let width = value * (endx - x) / total - img.width / 2
                     if ( width >= 0)
-                        ctx.drawImage(img, x + width, y);
+                        ctx.drawImage(img, x + width, y + progressBar.jsonObj.Width / 2 - img.height / 2);
                 }
             }
         }
