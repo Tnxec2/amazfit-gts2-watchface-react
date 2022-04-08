@@ -160,9 +160,9 @@ export function activitysToJson(alist: WatchActivity[]): Activity[] {
         let shortcut: Shortcut = null
 
         if (item) {
-            if (item.digit.enabled) {enabled = true; digits.push(item.digit)}
-            if (item.digitMin.enabled) {enabled = true; digits.push(item.digitMin)}
-            if (item.digitMax.enabled) {enabled = true; digits.push(item.digitMax)}
+            if (item.digit.enabled) {enabled = true; digits.push(getDigit(item.digit))}
+            if (item.digitMin.enabled) {enabled = true; digits.push(getDigit(item.digitMin))}
+            if (item.digitMax.enabled) {enabled = true; digits.push(getDigit(item.digitMax))}
             if (item.imageProgress.enabled) {
                 enabled = true
                 imageProgress = item.imageProgress
@@ -283,3 +283,13 @@ function getWidgetElement(we: WatchWidgetElement): WidgetElement {
         Activity: activitys?.length > 0 ? activitys : null
     }
 }
+function getDigit(digit: WatchCommonDigit): WatchCommonDigit {
+    var d = {...digit}
+
+    if (d.enabledSystemFont || d.enabledSystemFontCircle) {
+        d.json.Digit.Image = null
+    }
+
+    return d
+}
+
