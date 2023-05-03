@@ -7,7 +7,6 @@ export default function draw(canvas: HTMLCanvasElement, ctx: CanvasRenderingCont
                 images: IImage[], background: Background) {
     if (background?.imageIndex !== undefined && background?.imageIndex !== null) {
         const i = findImageById(background.imageIndex, images)
-        //images[Constant.getImageIndex(background.imageIndex, images.length)]
         if (i) {
             const img = i
             ctx.drawImage(img, 0, 0, img.width, img.height);

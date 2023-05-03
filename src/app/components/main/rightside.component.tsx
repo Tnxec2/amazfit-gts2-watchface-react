@@ -28,6 +28,7 @@ const RightSideComponent: FC = () => {
             </li>
           );
         })}
+        <li key="version" className="nav-item"><div className="nav-link disabled">v. {Constant.version}</div></li>
       </ul>
       { tabs[selectedTab].el }
     </div>
